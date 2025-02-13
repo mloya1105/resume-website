@@ -43,11 +43,12 @@ document.getElementById("contactForm").addEventListener("submit", async function
         formData.append("message", message);
 
         try {
-            // Send data to Flask API
-            let response = await fetch("http://127.0.0.1:5000/contact", {
+            // Send data to Flask API on Render
+            let response = await fetch("https://resume-website-b1kh.onrender.com", {
                 method: "POST",
                 body: formData
             });
+            
 
             // Get response
             let result = await response.json();
