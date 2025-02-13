@@ -44,7 +44,7 @@ document.getElementById("contactForm").addEventListener("submit", async function
 
         try {
             // Send data to Flask API on Render
-            let response = await fetch("https://resume-website-b1kh.onrender.com", {
+            let response = await fetch("https://resume-website-b1kh.onrender.com/contact", {
                 method: "POST",
                 body: formData
             });
