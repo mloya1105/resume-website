@@ -25,16 +25,42 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-document.getElementById("contactForm").addEventListener("submit", function(event) {
-    event.preventDefault();
-    
+document.getElementById("contactForm").addEventListener("submit", async function(event) {
+    event.preventDefault();  // Prevent default form submission
+
     let name = document.getElementById("name").value;
     let email = document.getElementById("email").value;
     let message = document.getElementById("message").value;
     
     if (name && email && message) {
-        document.getElementById("statusMessage").innerHTML = "Thank you for your message, " + name + "! I'll be in touch soon.";
-        document.getElementById("contactForm").reset();
+        // Update UI before sending the request
+        document.getElementById("statusMessage").innerHTML = "Sending your message...";
+
+        // Prepare form data
+        let formData = new FormData();
+        formData.append("name", name);
+        formData.append("email", email);
+        formData.append("message", message);
+
+        try {
+            // Send data to Flask API
+            let response = await fetch("http://127.0.0.1:5000/contact", {
+                method: "POST",
+                body: formData
+            });
+
+            // Get response
+            let result = await response.json();
+
+            // Show success message
+            document.getElementById("statusMessage").innerHTML = result.status;
+            document.getElementById("contactForm").reset();
+
+        } catch (error) {
+            // Show error message
+            console.error("Error:", error);
+            document.getElementById("statusMessage").innerHTML = "Something went wrong. Please email me directly at mloya1207@gmail.com";
+        }
     } else {
         document.getElementById("statusMessage").innerHTML = "Please fill out all fields.";
     }
