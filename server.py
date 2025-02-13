@@ -31,7 +31,7 @@ def contact():
         smtp_server.sendmail(email, EMAIL_USER, email_body)
         smtp_server.quit()
         
-        return jsonify({"status": "Message sent successfully!"})
+        return jsonify({"status": "Message sent successfully!"}), 200
     
     except Exception as e:
         return jsonify({"status": "Error", "message": str(e)}), 500

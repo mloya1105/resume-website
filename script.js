@@ -48,24 +48,22 @@ document.getElementById("contactForm").addEventListener("submit", async function
                 method: "POST",
                 body: formData
             });
-            
-
+        
             // Get response
             let result = await response.json();
-
+        
             if (response.ok) {
-                statusMessage.innerHTML = result.status; // ✅ Show success message
-                statusMessage.style.color = "green";
+                document.getElementById("statusMessage").innerHTML = result.status; // ✅ Show success message
+                document.getElementById("statusMessage").style.color = "green";
                 document.getElementById("contactForm").reset(); // Reset form
             } else {
-                statusMessage.innerHTML = "Something went wrong. Please email me directly at mloya1207@gmail.com";
-                statusMessage.style.color = "red";
+                throw new Error(result.message || "Something went wrong. Please email me directly at mloya1207@gmail.com");
             }
-
+        
         } catch (error) {
             console.error("Error:", error);
-            statusMessage.innerHTML = "Something went wrong. Please email me directly at mloya1207@gmail.com";
-            statusMessage.style.color = "red";
+            document.getElementById("statusMessage").innerHTML = error.message;
+            document.getElementById("statusMessage").style.color = "red";
         }
     } else {
         statusMessage.innerHTML = "Please fill out all fields.";
