@@ -1,6 +1,5 @@
 Flask
 python-dotenv
 gunicorn
-smtplib
 requests
 
