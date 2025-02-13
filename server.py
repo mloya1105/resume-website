@@ -28,7 +28,7 @@ def contact():
         email_body = f"Subject: Contact Form Submission\n\nFrom: {name} <{email}>\n\n{message}"
         
         # Send email
-        smtp_server.sendmail(EMAIL_USER, "your_email@gmail.com", email_body)
+        smtp_server.sendmail(email, EMAIL_USER, email_body)
         smtp_server.quit()
         
         return jsonify({"status": "Message sent successfully!"})
