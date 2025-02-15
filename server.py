@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 import smtplib
 import os
 from dotenv import load_dotenv
@@ -10,6 +10,11 @@ EMAIL_USER = os.getenv("EMAIL_USER")
 EMAIL_PASS = os.getenv("EMAIL_PASS")
 
 app = Flask(__name__)
+
+# Serve the HTML page at the root URL
+@app.route('/')
+def home():
+    return render_template('index.html')  # Make sure your HTML file is named 'index.html'
 
 @app.route('/contact', methods=['POST'])
 def contact():
@@ -31,7 +36,7 @@ def contact():
         smtp_server.sendmail(email, EMAIL_USER, email_body)
         smtp_server.quit()
         
-        return jsonify({"status": "Message sent successfully!"}), 200
+        return jsonify({"status": "Thank you for your message, " + name + "! I'll be in touch soon."}), 200
     
     except Exception as e:
         return jsonify({"status": "Error", "message": str(e)}), 500

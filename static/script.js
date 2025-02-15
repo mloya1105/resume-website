@@ -53,7 +53,7 @@ document.getElementById("contactForm").addEventListener("submit", async function
             let result = await response.json();
         
             if (response.ok) {
-                document.getElementById("statusMessage").innerHTML = result.status; // ✅ Show success message
+                document.getElementById("statusMessage").innerHTML = result.status; //Show success message
                 document.getElementById("statusMessage").style.color = "green";
                 document.getElementById("contactForm").reset(); // Reset form
             } else {
@@ -66,7 +66,7 @@ document.getElementById("contactForm").addEventListener("submit", async function
             document.getElementById("statusMessage").style.color = "red";
         }
     } else {
-        statusMessage.innerHTML = "Please fill out all fields.";
-        statusMessage.style.color = "red";
+        document.getElementById("statusMessage").innerHTML = "Please fill out all fields.";
+        document.getElementById("statusMessage").style.color = "red";
     }
 });
