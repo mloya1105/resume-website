@@ -14,7 +14,7 @@ app = Flask(__name__)
 # Serve the HTML page at the root URL
 @app.route('/')
 def home():
-    return render_template('templates/index.html')  # Make sure your HTML file is named 'index.html'
+    return render_template('/templates/index.html')  # Make sure your HTML file is named 'index.html'
 
 @app.route('/contact', methods=['POST'])
 def contact():
