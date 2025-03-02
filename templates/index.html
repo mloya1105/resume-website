@@ -117,13 +117,23 @@
                 </section>
             </div>
 
-            <!-- Projects Section
+            <!-- Projects Section -->
             <div class="shadow-sm p-3 mb-4 bg-body rounded">
                 <section id="Projects" class="mb-3">
                     <h3 style="border-bottom: 2px solid #c6c1d7; padding-bottom: 10px;">Projects</h3>
-                     Add your projects content here 
+                    <div class="project">
+                        <h4 style="color:#7b7493; display: inline;">ETL Pipeline for Reddit Data</h4>
+                        <h4 style="display: inline;"> | Personal Learning Project</h4>
+                        <p><a href="https://github.com/mloya1105/reddit-data-engineering" target="_blank" style="color: #9790b2">GitHub Repo</a></p>
+                        <ul>
+                            <li>Designed and deployed an end-to-end ETL pipeline extracting data from Reddit API, transforming it with Python & AWS Glue, and loading it into AWS S3 for querying with AWS Athena.</li>
+                            <li>Configured a local development environment with Docker, Apache Airflow, Redis, and PostgreSQL to streamline data ingestion and orchestration.</li>
+                            <li>Applied best practices for big data workflows, handling API rate limits, optimizing transformations, and ensuring efficient storage in AWS.</li>
+                            <li>The purpose of this project was to sharpen my skills and explore new tools in data engineering.</li>
+                        </ul>
+                    </div>
                 </section>
-            </div> -->
+            </div>
 
             <!-- Interests Section -->
             <div class="shadow-sm p-3 mb-4 bg-body rounded">
@@ -158,15 +168,23 @@
                             <label for="message" class="form-label">Message</label>
                             <textarea class="form-control" id="message" name="message" required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary">Send</button>
+                        <button type="submit" class="btn btn-primary" style="background-color: #9790b2; color: white; border: 1px solid #9790b2;">Send</button>
                     </form>
                     <div id="statusMessage" class="mt-3"></div>
                 </section>
             </div>
 
             <!-- Scheduling API Calendly -->
-            <div class="calendly-inline-widget" data-url="https://calendly.com/mloya1207" style="min-width:320px;height:700px;"></div>
-            <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+            <div class="shadow-sm p-3 mb-5 bg-body rounded">
+                <section id="MeetWithMe" style="padding-top: 0; margin-top: 0;">
+                    <h3 style="border-bottom: 2px solid #c6c1d7; padding-bottom: 10px; margin-top: 0; margin-bottom: 5px;">Meet With Me</h3>
+                    <div class="calendly-widget-container text-center" style="margin-top: 0; padding: 0;">
+                        <!-- Calendly inline widget begin -->
+                        <div class="calendly-inline-widget" data-url="https://calendly.com/mloya1207?primary_color=9790b2" style="min-width:320px;height:600px;"></div>
+                        <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+                        <!-- Calendly inline widget end -->
+                    </div>
+                </section>
         </div>
     </main>
 
