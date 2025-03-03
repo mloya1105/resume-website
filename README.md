@@ -1,7 +1,7 @@
 # Marissa Loya - Resume Website
 Welcome to my personal resume website! This project showcases my experience, skills, and notable projects in data engineering, software development, and analytics. Built using Python (in progress), HTML, CSS, and JavaScript, this site is designed to provide recruiters and potential employers with insights into my professional background and a way to easily contact me.
 
-🔗 **Live site:** [https://mloya1105.github.io/resume-website/](https://mloya1105.github.io/resume-website/)
+🔗 **Live site:** [(https://resume-website-b1kh.onrender.com/)](https://resume-website-b1kh.onrender.com/)
 
 ## 🚀 Features
 **Professional Overview:** Summary of my background, skills, and career journey.
