@@ -4,257 +4,515 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
     <link rel="apple-touch-icon" sizes="180x180" href="/static/assets/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/static/assets/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/static/assets/favicon-16x16.png">
     <link rel="manifest" href="/static/assets/site.webmanifest">
-    <title>Marissa Fowler (Loya) | Resume</title>
 
-    <!-- Bootstrap CSS v5.2.1 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" 
-          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    <title>Marissa Fowler | Analytics Engineer</title>
+    <meta name="description"
+          content="Analytics Engineer specializing in data pipelines, KPI frameworks, data modeling, and self-service analytics using SQL, Python, Alteryx, BigQuery, Power BI, and Tableau.">
 
-    <!-- Your Custom CSS File -->
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+          crossorigin="anonymous" />
+
+    <!-- Existing custom CSS -->
     <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet" />
+
+    <!-- Small additions for the refreshed layout -->
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .section-heading {
+            border-bottom: 2px solid #c6c1d7;
+            padding-bottom: 10px;
+        }
+
+        .accent-text {
+            color: #7b7493;
+        }
+
+        .accent-link {
+            color: #7b7493;
+        }
+
+        .hero-actions .btn {
+            margin: 0.25rem;
+        }
+
+        .about-photo {
+            border-radius: 15px;
+            width: 100%;
+            max-width: 260px;
+            height: auto;
+        }
+
+        .experience + .experience,
+        .project + .project {
+            margin-top: 1.75rem;
+        }
+
+        .experience ul,
+        .project ul {
+            margin-bottom: 0;
+        }
+
+        .foundational-details summary {
+            cursor: pointer;
+            color: #7b7493;
+            font-size: 1.1rem;
+            padding: 0.25rem 0;
+        }
+
+        .foundational-details[open] summary {
+            margin-bottom: 1rem;
+        }
+
+        .contact-actions .btn {
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+    </style>
 </head>
 
 <body>
+
     <header class="custom-header py-3">
         <div class="container">
-            <!-- Navigation Links with logos -->
+
+            <!-- Social links -->
             <ul class="nav justify-content-end">
                 <li class="nav-item">
-                    <a class="nav-link" href="https://www.linkedin.com/in/marissaloya/" target="_blank">
-                        <img src="{{ url_for('static', filename='assets/linkedin_logo.png') }}" alt="LinkedIn" width="30" height="30">
+                    <a class="nav-link"
+                       href="https://www.linkedin.com/in/marissaloya/"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        <img src="{{ url_for('static', filename='assets/linkedin_logo.png') }}"
+                             alt="LinkedIn"
+                             width="30"
+                             height="30">
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="https://github.com/mloya1105" target="_blank">
-                        <img src="{{ url_for('static', filename='assets/github_logo.png') }}" alt="GitHub" width="30" height="30">
+                    <a class="nav-link"
+                       href="https://github.com/mloya1105"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        <img src="{{ url_for('static', filename='assets/github_logo.png') }}"
+                             alt="GitHub"
+                             width="30"
+                             height="30">
                     </a>
                 </li>
             </ul>
-    
-            <!-- Name and Subtitle -->
-            <div class="text-center">
-                <h1>Marissa Fowler (Loya)</h1>
-                <p class="fs-5" style="margin-bottom: 2px;">Data Analytics Engineer | Python | SQL | Cloud Platforms | Metric Design & Data Modeling | Product Analytics</p>
-                <p class="fs-5" style="margin-top: 0;">Virginia Beach, Virginia</p>
+
+            <!-- Hero -->
+            <div class="text-center pb-2">
+                <h1>Marissa Fowler</h1>
+                <p class="fs-4 mb-1"><strong>Analytics Engineer</strong></p>
+                <p class="fs-5 mb-1">
+                    Building reliable data pipelines, KPI frameworks, and self-service analytics
+                    with SQL, Python, Alteryx, BigQuery, Power BI, and Tableau.
+                </p>
+                <p class="fs-5 mb-3">Virginia Beach, Virginia</p>
+
+                <div class="hero-actions">
+                    <a href="#Experience"
+                       class="btn btn-primary"
+                       style="background-color: #9790b2; color: white; border: 1px solid #9790b2;">
+                        View Experience
+                    </a>
+                    <a href="#ContactMe" class="btn btn-outline-secondary">
+                        Contact Me
+                    </a>
+                </div>
             </div>
+
         </div>
     </header>
 
     <main>
         <div class="container my-5">
-            <!-- Education Section -->
-            <div class="shadow-sm p-3 mb-4 bg-body rounded">
-                <section id="Education" class="mb-3">
-                    <h3 style="border-bottom: 2px solid #c6c1d7; padding-bottom: 10px;">Education</h3>
-                    <h4 style="color:#7b7493; display: inline;">Bachelor of Science in Computer Science</h4>
-                    <h4 style="display: inline;"> | Old Dominion University</h4>
-                    <p>December 2022</p>
+
+            <!-- About -->
+            <div class="shadow-sm p-3 p-md-4 mb-4 bg-body rounded">
+                <section id="About">
+                    <h3 class="section-heading">About</h3>
+
+                    <div class="row align-items-center g-4 mt-1">
+                        <div class="col-md-4 text-center">
+                            <img src="{{ url_for('static', filename='assets/MarissaLoya.jpg') }}"
+                                 alt="Marissa Fowler"
+                                 class="img-fluid about-photo">
+                        </div>
+
+                        <div class="col-md-8">
+                            <p class="mb-3">
+                                Analytics Engineer with 3+ years of experience building automated data pipelines,
+                                analytics-ready datasets, KPI frameworks, and self-service reporting. I specialize
+                                in turning complex operational data and ambiguous business questions into reliable
+                                metrics, reusable data products, and reporting that helps teams make decisions with
+                                confidence.
+                            </p>
+
+                            <p class="mb-0">
+                                <strong>Based in:</strong> Virginia Beach, VA
+                                <span class="mx-2">·</span>
+                                <strong>Work authorization:</strong> U.S. Citizen
+                            </p>
+                        </div>
+                    </div>
                 </section>
             </div>
 
-            <!-- Skills Section -->
-            <div class="shadow-sm p-3 mb-4 bg-body rounded">
-                <section id="Skills" class="mb-3">
-                    <h3 style="border-bottom: 2px solid #c6c1d7; padding-bottom: 10px;">Skills</h3>
-                    <ul>
-                        <li><b>Languages:</b> SQL, Python, JavaScript, Bash/Shell, HTML/CSS, Java, C++</li>
-                        <li><b>Analytics stack:</b> BigQuery, Looker/Looker Studio, Tableau, Power BI, Excel</li>
-                        <li><b>Data pipelines:</b> Airflow, Dataflow, Spark, Docker, Google Apps Script</li>
-                        <li><b>Databases:</b> PostgreSQL, MySQL, MongoDB, DynamoDB</li>
-                        <li><b>Cloud:</b> AWS (S3, Lambda, Glue, Redshift), GCP</li>
-                        <li><b>Engineering:</b> Git/GitHub, CI/CD, Kubernetes</li>
-                        <li><b>Formats:</b> JSON, XML, YAML, CSV</li>
+            <!-- Experience -->
+            <div class="shadow-sm p-3 p-md-4 mb-4 bg-body rounded">
+                <section id="Experience">
+                    <h3 class="section-heading">Experience</h3>
+
+                    <div class="experience mt-3">
+                        <h4 class="accent-text d-inline">Data Analyst | Analytics Engineering</h4>
+                        <h4 class="d-inline"> | Dollar Tree</h4>
+                        <p>April 2025 - Present | Chesapeake, VA</p>
+
+                        <ul>
+                            <li>
+                                Design and maintain analytics pipelines across IBM i/DB2, SQL Server, BigQuery,
+                                and Alteryx, transforming complex operational data into trusted datasets supporting
+                                enterprise Supply Chain reporting and executive decision-making.
+                            </li>
+                            <li>
+                                Rebuilt the enterprise DC Scorecard data model and scoring framework to calculate
+                                period-based KPIs, standardized performance ratings, outlier handling, and performance
+                                targets across the distribution network.
+                            </li>
+                            <li>
+                                Build analytics datasets and reporting solutions in Power BI and Tableau for
+                                distribution center KPIs including trailer dwell time, yard and reserve capacity,
+                                cases per hour, OSHA performance, fill rate, shrink, and employee turnover.
+                            </li>
+                            <li>
+                                Re-architected the Supply Chain Tableau portal using platform usage analytics to
+                                prioritize high-value dashboards, identify low-use content, and improve discoverability
+                                of self-service reporting for hundreds of users.
+                            </li>
+                            <li>
+                                Build scalable Alteryx workflows processing multi-million-row datasets and reusable
+                                extraction patterns, including chunked BigQuery processing designed to overcome API
+                                result limitations.
+                            </li>
+                            <li>
+                                Automate production monitoring and reporting processes using REST APIs, PowerShell,
+                                SQL, and scheduled workflows, reducing manual troubleshooting and improving reliability
+                                of business-critical analytics.
+                            </li>
+                            <li>
+                                Partner with Supply Chain leadership and operational teams to translate loosely defined
+                                business questions into standardized metrics, reusable data products, and executive-ready
+                                reporting.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="experience">
+                        <h4 class="accent-text d-inline">Data Analyst | Quality Analytics</h4>
+                        <h4 class="d-inline"> | Cruise</h4>
+                        <p>January 2023 - December 2024 | San Francisco, CA</p>
+
+                        <ul>
+                            <li>
+                                Built automated Python and SQL workflows to streamline recurring data preparation,
+                                validation, and reporting processes.
+                            </li>
+                            <li>
+                                Developed reusable SQL transformations using CTEs, window functions, complex joins,
+                                and validation logic to produce reliable analytics-ready datasets.
+                            </li>
+                            <li>
+                                Created Looker and Looker Studio dashboards and reporting datasets to operationalize
+                                quality and performance metrics.
+                            </li>
+                            <li>
+                                Conducted root-cause analysis on data discrepancies and partnered with engineering,
+                                data science, and operations teams to improve data quality and metric reliability.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="experience">
+                        <h4 class="accent-text d-inline">Data Science Intern</h4>
+                        <h4 class="d-inline"> | Jefferson Science Associates</h4>
+                        <p>July 2019 - December 2022</p>
+
+                        <ul>
+                            <li>
+                                Migrated research data from Excel into Microsoft Access using SQL, improving data
+                                organization and consistency for recurring analysis.
+                            </li>
+                            <li>
+                                Developed SQL scripts to improve data storage and retrieval and support reporting
+                                requirements.
+                            </li>
+                            <li>
+                                Automated recurring data-processing and reporting tasks to reduce manual effort.
+                            </li>
+                            <li>
+                                Created Excel and Power BI reports to improve visibility into research metrics.
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Skills -->
+            <div class="shadow-sm p-3 p-md-4 mb-4 bg-body rounded">
+                <section id="Skills">
+                    <h3 class="section-heading">Skills</h3>
+
+                    <ul class="mt-3 mb-0">
+                        <li>
+                            <b>Data & Analytics:</b>
+                            SQL, Python, data modeling, ETL/ELT, metric design, KPI development,
+                            data quality validation
+                        </li>
+                        <li>
+                            <b>Platforms & Databases:</b>
+                            BigQuery, SQL Server, IBM i / DB2, PostgreSQL, Alteryx
+                        </li>
+                        <li>
+                            <b>BI & Reporting:</b>
+                            Power BI, DAX, Tableau, Looker, Looker Studio, Excel
+                        </li>
+                        <li>
+                            <b>Automation & Integration:</b>
+                            REST APIs, PowerShell, VBA, workflow automation
+                        </li>
+                        <li>
+                            <b>Additional Technologies:</b>
+                            Git/GitHub, AWS, HTML/CSS, JavaScript
+                        </li>
                     </ul>
                 </section>
             </div>
 
-            <!-- Experience Section -->
-            <div class="shadow-sm p-3 mb-4 bg-body rounded">
-                <section id="Experience" class="mb-3">
-                    <h3 style="border-bottom: 2px solid #c6c1d7; padding-bottom: 10px;">Experience</h3>
-                    <div class="experience">
-                        <h4 style="color:#7b7493; display: inline;">Data Analytics Engineer</h4>
-                        <h4 style="display: inline;"> | Dollar Tree</h4>
-                        <p>April 2025 - Present</p>
-                        <ul>
-                            <li>Promoted within six months based on delivery velocity, stakeholder trust, and the ability to take ambiguous reporting needs from request to production-quality output.</li>
-                            <li>Leading a supply chain reporting foundation effort to map enterprise data sources to dashboards and reports, documenting lineage and metric definitions to improve consistency across teams.</li>
-                            <li>Building analytics-ready datasets by integrating and validating data across AS400, SQL Server, and BigQuery, strengthening KPI integrity and reducing reconciliation churn.</li>
-                            <li>Redesigning and scaling self-serve Tableau and Power BI experiences, improving discoverability of core KPIs and enabling faster, more confident decision-making for business users.</li>
-                            <li>Developing and optimizing Alteryx workflows to automate recurring reporting and data preparation, improving reliability and freeing up analyst time for deeper analysis.</li>
-                            <li>Continuously solving high-ambiguity problems quickly by diagnosing data issues at the source, aligning stakeholders on metric definitions, and documenting solutions to make them repeatable.</li>
-                        </ul>
-                    </div>
-                    <div class="experience">
-                        <h4 style="color:#7b7493; display: inline;">Data Analyst</h4>
-                        <h4 style="display: inline;"> | Cruise</h4>
-                        <p>January 2023 - December 2024</p>
-                        <ul>
-                            <li>Architected and maintained ETL pipelines using Python and SQL across BigQuery, improving data availability and reducing manual reporting overhead.</li>
-                            <li>Designed stakeholder dashboards in Looker Studio to surface operational and quality signals and shorten reporting cycles for AV system performance.</li>
-                            <li>Built reusable SQL transformations (CTEs, window functions) and validation checks to improve metric reliability and reduce downstream discrepancies.</li>
-                            <li>Conducted root cause analysis on data inconsistencies, implementing a validation framework that reduced system errors by 25% and improved pipeline reliability.</li>
-                            <li>Partnered with engineering, data science, and operations to define measurement, triage issues, and improve data quality.</li>
-                            <li>Utilized CI/CD automation for deploying and monitoring pipelines, increasing operational efficiency and reducing deployment risks.</li>
-                        </ul>
-                    </div>
-                    <div class="experience">
-                        <h4 style="color:#7b7493; display: inline;">Data Science Intern</h4>
-                        <h4 style="display: inline;"> | Jefferson Science Associates</h4>
-                        <p>July 2019 - December 2022</p>
-                        <ul>
-                            <li>Engineered SQL-based data migration from Excel to Microsoft Access, improving query performance by 50% and ensuring data consistency.</li>
-                            <li>Developed custom SQL scripts to optimize data storage and retrieval, supporting compliance with reporting standards.</li>
-                            <li>Automated data processing workflows, reducing manual report generation time by 35% and supporting real-time decision-making.</li>
-                            <li>Created data visualization reports in Excel and Power BI, improving insights into research metrics and enhancing efficiency in data interpretation.</li>
-                        </ul>
-                    </div>
-                </section>
-            </div>
+            <!-- Projects -->
+            <div class="shadow-sm p-3 p-md-4 mb-4 bg-body rounded">
+                <section id="Projects">
+                    <h3 class="section-heading">Projects</h3>
 
-            <!-- Foundational Experience Section -->
-            <div class="shadow-sm p-3 mb-4 bg-body rounded">
-                <section id="Experience" class="mb-3">
-                    <h3 style="border-bottom: 2px solid #c6c1d7; padding-bottom: 10px;">Foundational Experience</h3>
-                    <p style="margin-top: -6px;">Early career roles that built accuracy, troubleshooting, and communication.</p>
-                    <div class="experience">
-                        <h4 style="color:#7b7493; display: inline;">Bank Teller</h4>
-                        <h4 style="display: inline;"> | BB&T (Now Truist)</h4>
-                        <p>July 2018 - July 2019</p>
-                        <ul>
-                            <li>Processed high-volume customer transactions with consistent accuracy; balanced cash drawer daily and resolved discrepancies using documented procedures.</li>
-                            <li>Followed strict compliance and privacy requirements while handling sensitive financial information.</li>
-                            <li>Strengthened customer-facing communication skills by explaining options clearly and resolving issues efficiently under time constraints.</li>
-                        </ul>
-                    </div>
-                    <div class="experience">
-                        <h4 style="color:#7b7493; display: inline;">Product Specialist</h4>
-                        <h4 style="display: inline;"> | Apple</h4>
-                        <p>October 2017 - July 2018</p>
-                        <ul>
-                            <li>Consulted with customers to understand needs and recommend solutions, explaining technical tradeoffs in a clear, approachable way.</li>
-                            <li>Supported operational accuracy in a high-traffic environment (transactions, device setup, issue escalation) while maintaining attention to detail.</li>
-                            <li>Partnered with team members to troubleshoot common device and account issues and guide customers to the right resolution path.</li>
-                        </ul>
-                    </div>
-                </section>
-            </div>
+                    <div class="project mt-3">
+                        <h4 class="accent-text d-inline">ETL Pipeline for Reddit Data</h4>
+                        <h4 class="d-inline"> | Personal Learning Project</h4>
 
-            <!-- Projects Section -->
-            <div class="shadow-sm p-3 mb-4 bg-body rounded">
-                <section id="Projects" class="mb-3">
-                    <h3 style="border-bottom: 2px solid #c6c1d7; padding-bottom: 10px;">Projects</h3>
+                        <p>
+                            <a href="https://github.com/mloya1105/reddit-data-engineering"
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               class="accent-link">
+                                View GitHub Repository
+                            </a>
+                        </p>
+
+                        <ul>
+                            <li>
+                                Designed and deployed an end-to-end ETL pipeline extracting data from the Reddit API,
+                                transforming it with Python and AWS Glue, and loading it into Amazon S3 for querying
+                                with AWS Athena.
+                            </li>
+                            <li>
+                                Configured a local development environment with Docker, Apache Airflow, Redis, and
+                                PostgreSQL to support data ingestion and orchestration.
+                            </li>
+                            <li>
+                                Worked with API rate limits, data transformations, and cloud storage patterns while
+                                expanding hands-on data engineering experience.
+                            </li>
+                        </ul>
+                    </div>
+
                     <div class="project">
-                        <h4 style="color:#7b7493; display: inline;">ETL Pipeline for Reddit Data</h4>
-                        <h4 style="display: inline;"> | Personal Learning Project</h4>
-                        <p><a href="https://github.com/mloya1105/reddit-data-engineering" target="_blank" style="color: #9790b2">reddit-data-engineering GitHub Repo</a></p>
-                        <ul>
-                            <li>Designed and deployed an end-to-end ETL pipeline extracting data from Reddit API, transforming it with Python & AWS Glue, and loading it into AWS S3 for querying with AWS Athena.</li>
-                            <li>Configured a local development environment with Docker, Apache Airflow, Redis, and PostgreSQL to streamline data ingestion and orchestration.</li>
-                            <li>Applied best practices for big data workflows, handling API rate limits, optimizing transformations, and ensuring efficient storage in AWS.</li>
-                            <li>The purpose of this project was to sharpen my skills and explore new tools in data engineering.</li>
-                        </ul>
-                    </div>
-                    <div class="project">
-                        <h4 style="color:#7b7493; display: inline;">Resume Website</h4>
-                        <h4 style="display: inline;"> | Personal Project</h4>
-                        <p><a href="https://github.com/mloya1105/resume-website" target="_blank" style="color: #9790b2">resume-website GitHub Repo</a></p>
-                        <ul>
-                            <li>Developed a professional resume website to showcase projects, technical skills, and work experience in an interactive format.</li>
-                            <li>Built using Python, HTML, CSS, and JavaScript, creating a responsive and visually appealing design.</li>
-                            <li>Deployed on Render, utilizing cloud-based hosting for reliability and fast load times.</li>
-                            <li>Integrated analytics tracking to monitor visitor engagement and optimize user experience.</li>
-                        </ul>
-                    </div>
-                </section>
-            </div>
+                        <h4 class="accent-text d-inline">Resume Website</h4>
+                        <h4 class="d-inline"> | Personal Project</h4>
 
-            <!-- Interests Section -->
-            <div class="shadow-sm p-3 mb-4 bg-body rounded">
-                <section id="Interests" class="mb-3">
-                    <h3 style="border-bottom: 2px solid #c6c1d7; padding-bottom: 10px;">Interests & Causes</h3>
-                    <div class="interests">
+                        <p>
+                            <a href="https://github.com/mloya1105/resume-website"
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               class="accent-link">
+                                View GitHub Repository
+                            </a>
+                        </p>
+
                         <ul>
-                            <li>Inclusive teams and equitable systems; support civil rights, LGBTQIA+ rights, and social equity.</li>
-                            <li>Animal welfare and rescue advocacy.</li>
-                            <li>Continuous learning in data engineering, AI, and emerging technologies.</li>
-                            <li>Strategy games and puzzle-solving.</li>
-                            <li>Reading across fiction and nonfiction for creative and analytical growth.</li>
-                            <li>Travel and cultural exploration.</li>
+                            <li>
+                                Built and maintain a responsive professional portfolio using Python, Flask, HTML,
+                                CSS, JavaScript, and Bootstrap.
+                            </li>
+                            <li>
+                                Deployed the site on Render and configured custom-domain DNS through Namecheap.
+                            </li>
+                            <li>
+                                Integrated analytics tracking to monitor visitor engagement and support ongoing
+                                site improvements.
+                            </li>
                         </ul>
                     </div>
                 </section>
             </div>
 
-            <!-- Eligibility Section -->
-            <div class="shadow-sm p-3 mb-4 bg-body rounded">
-                <section id="Eligibility" class="mb-3">
-                    <h3 style="border-bottom: 2px solid #c6c1d7; padding-bottom: 10px;">Eligibility</h3>
-                    <p>U.S. Citizen</p>
+            <!-- Education -->
+            <div class="shadow-sm p-3 p-md-4 mb-4 bg-body rounded">
+                <section id="Education">
+                    <h3 class="section-heading">Education</h3>
+
+                    <div class="mt-3">
+                        <h4 class="accent-text d-inline">Bachelor of Science in Computer Science</h4>
+                        <h4 class="d-inline"> | Old Dominion University</h4>
+                        <p class="mb-0">December 2022 | Norfolk, VA</p>
+                    </div>
                 </section>
             </div>
 
-            <!-- Contact Form Section -->
-            <div class="shadow-sm p-3 mb-5 bg-body rounded">
+            <!-- Foundational Experience -->
+            <div class="shadow-sm p-3 p-md-4 mb-4 bg-body rounded">
+                <section id="FoundationalExperience">
+                    <h3 class="section-heading">Foundational Experience</h3>
+                    <p class="mt-3">
+                        Early career roles that strengthened accuracy, troubleshooting, customer communication,
+                        and problem-solving.
+                    </p>
+
+                    <details class="foundational-details">
+                        <summary><strong>View Earlier Experience</strong></summary>
+
+                        <div class="experience">
+                            <h4 class="accent-text d-inline">Bank Teller</h4>
+                            <h4 class="d-inline"> | BB&amp;T (Now Truist)</h4>
+                            <p>July 2018 - July 2019</p>
+
+                            <ul>
+                                <li>
+                                    Processed high-volume customer transactions with consistent accuracy, balanced
+                                    cash daily, and resolved discrepancies using documented procedures.
+                                </li>
+                                <li>
+                                    Followed strict compliance and privacy requirements while handling sensitive
+                                    financial information.
+                                </li>
+                                <li>
+                                    Strengthened customer-facing communication by explaining options clearly and
+                                    resolving issues efficiently under time constraints.
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="experience">
+                            <h4 class="accent-text d-inline">Product Specialist</h4>
+                            <h4 class="d-inline"> | Apple</h4>
+                            <p>October 2017 - July 2018</p>
+
+                            <ul>
+                                <li>
+                                    Consulted with customers to understand needs and recommend solutions, explaining
+                                    technical tradeoffs in a clear and approachable way.
+                                </li>
+                                <li>
+                                    Supported operational accuracy in a high-traffic environment involving
+                                    transactions, device setup, and issue escalation.
+                                </li>
+                                <li>
+                                    Partnered with team members to troubleshoot common device and account issues and
+                                    guide customers toward the right resolution.
+                                </li>
+                            </ul>
+                        </div>
+                    </details>
+                </section>
+            </div>
+
+            <!-- Interests -->
+            <div class="shadow-sm p-3 p-md-4 mb-4 bg-body rounded">
+                <section id="Interests">
+                    <h3 class="section-heading">Interests &amp; Causes</h3>
+
+                    <ul class="mt-3 mb-0">
+                        <li>Inclusive teams and equitable systems; support civil rights, LGBTQIA+ rights, and social equity.</li>
+                        <li>Animal welfare and rescue advocacy.</li>
+                        <li>Continuous learning in data engineering, AI, and emerging technologies.</li>
+                        <li>Strategy games and puzzle-solving.</li>
+                        <li>Reading across fiction and nonfiction for creative and analytical growth.</li>
+                        <li>Travel and cultural exploration.</li>
+                    </ul>
+                </section>
+            </div>
+
+            <!-- Contact -->
+            <div class="shadow-sm p-3 p-md-4 mb-5 bg-body rounded">
                 <section id="ContactMe">
-                    <h3 style="border-bottom: 2px solid #c6c1d7; padding-bottom: 10px;">Contact Me</h3>
-                    <form id="contactForm" method="POST" action="javascript:void(0);"> <!-- Avoid traditional form submit -->
+                    <h3 class="section-heading">Contact Me</h3>
+
+                    <p class="mt-3">
+                        Interested in discussing analytics engineering, data analytics, or related opportunities?
+                        Send me a message below or schedule a conversation.
+                    </p>
+
+                    <!-- Existing form IDs/action preserved for script.js -->
+                    <form id="contactForm" method="POST" action="javascript:void(0);">
                         <div class="mb-3">
                             <label for="name" class="form-label">Name</label>
                             <input type="text" class="form-control" id="name" name="name" required>
                         </div>
+
                         <div class="mb-3">
                             <label for="email" class="form-label">Email</label>
                             <input type="email" class="form-control" id="email" name="email" required>
                         </div>
+
                         <div class="mb-3">
                             <label for="message" class="form-label">Message</label>
-                            <textarea class="form-control" id="message" name="message" required></textarea>
+                            <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary" style="background-color: #9790b2; color: white; border: 1px solid #9790b2;">Send</button>
+
+                        <div class="contact-actions">
+                            <button type="submit"
+                                    class="btn btn-primary"
+                                    style="background-color: #9790b2; color: white; border: 1px solid #9790b2;">
+                                Send Message
+                            </button>
+
+                            <a href="https://calendly.com/mloya1207"
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               class="btn btn-outline-secondary">
+                                Schedule a Conversation
+                            </a>
+                        </div>
                     </form>
+
                     <div id="statusMessage" class="mt-3"></div>
                 </section>
             </div>
 
-            <!-- Scheduling API Calendly -->
-            <div class="shadow-sm p-3 mb-5 bg-body rounded">
-                <section id="MeetWithMe" style="padding-top: 0; margin-top: 0;">
-                    <h3 style="border-bottom: 2px solid #c6c1d7; padding-bottom: 10px; margin-top: 0; margin-bottom: 5px;">Meet With Me</h3>
-                    <div class="calendly-widget-container text-center" style="margin-top: 0; padding: 0;">
-                        <!-- Calendly inline widget begin -->
-                        <div class="calendly-inline-widget" data-url="https://calendly.com/mloya1207?primary_color=9790b2" style="min-width:320px;height:600px;"></div>
-                        <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-                        <!-- Calendly inline widget end -->
-                    </div>
-                </section>
-            </div>
-
-            <!-- Professional Photo -->
-            <div class="text-center my-5">
-                <img src="/static/assets/MarissaLoya.jpg" alt="Marissa Loya" class="img-fluid" style="border-radius: 15px; max-width: 50%; height: auto;">
-            </div>
         </div>
     </main>
 
     <footer class="custom-header py-3 text-center">
-        <!-- Footer Content -->
-        <p>&copy; 2025 Marissa Loya</p>
+        <p class="mb-0">&copy; <span id="year"></span> Marissa Fowler</p>
     </footer>
 
-    <!-- Bootstrap and custom JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" 
-            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" 
-            crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" 
-            integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" 
-            crossorigin="anonymous"></script>
-
-    <!-- Link to your custom JS file -->
+    <!-- Existing custom JavaScript -->
     <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+    <!-- Keep the footer year current automatically -->
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+
 </body>
 </html>
