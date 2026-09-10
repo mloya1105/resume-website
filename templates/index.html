@@ -117,112 +117,253 @@
             margin-bottom: 0.7rem;
         }
 
-        .btn-main {
-            background-color: #7b7493;
-            color: #ffffff;
-            border: 1px solid #ffffff;
+        /* Navbar */
+        .site-navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            z-index: 1030;
+            padding: 0.65rem 0;
+            background-color: #9790b2;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+        }
+        .custom-header {
+            padding-top: 70px;
+        }
+        section {
+            scroll-margin-top: 90px;
         }
 
-        .btn-main:hover,
-        .btn-main:focus,
-        .btn-main:active {
-            background-color: #ffffff !important;
-            color: #9790b2 !important;
-            border-color: #9790b2 !important;
+        .navbar-brand {
+            padding: 0;
         }
 
-        .btn-resumedownload {
-            background-color: #ffffff;
-            color: #9790b2;
-            border: 1px solid #9790b2;
+        .nav-brand-icon {
+            border-radius: 7px;
+            transition: transform 0.2s ease;
         }
 
-        .btn-resumedownload:hover,
-        .btn-resumedownload:focus,
-        .btn-resumedownload:active {
-            background-color: #7b7493 !important;
+        .navbar-brand:hover .nav-brand-icon {
+            transform: scale(1.08);
+        }
+
+        /* Main navigation links */
+        .site-nav-link {
             color: #ffffff !important;
-            border-color: #ffffff !important;
+            font-weight: 400;
+            font-size: 0.95rem;
+            margin: 0 0.2rem;
+            transition: color 0.2s ease, transform 0.2s ease;
         }
 
-        /* LinkedIn + GitHub icon hover */
+        .site-nav-link:hover,
+        .site-nav-link:focus {
+            color: #7b7493 !important;
+            transform: translateY(-1px);
+        }
+
+        /* Social icons */
         .social-icon {
             display: block;
             transition: transform 0.2s ease, filter 0.2s ease;
         }
 
         .nav-link:hover .social-icon {
-            transform: translateY(-3px) scale(1.08) !important;
+            transform: translateY(-2px) scale(1.08);
             filter: brightness(0) saturate(100%)
-                    invert(51%) sepia(10%) saturate(1004%)
-                    hue-rotate(211deg) brightness(89%) contrast(85%) !important;
+                    invert(49%) sepia(11%) saturate(925%)
+                    hue-rotate(213deg) brightness(91%) contrast(87%);
+        }
+
+        /* Download Resume button */
+        .btn-resume {
+            background-color: #ffffff;
+            color: #7b7493;
+            border: 1px solid #9790b2;
+            font-weight: 500;
+            font-size: 0.88rem;
+            padding: 0.35rem 0.7rem;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .btn-resume:hover,
+        .btn-resume:focus,
+        .btn-resume:active {
+            background-color: #7b7493 !important;
+            color: #ffffff !important;
+            border-color: #7b7493 !important;
+            transform: translateY(-1px);
+        }
+
+        /* Main button */
+        .btn-main {
+            background-color: #9790b2;
+            color: #ffffff;
+            border: 1px solid #9790b2;
+            font-weight: 425;
+            font-size: 1rem;
+            padding: 0.35rem 0.7rem;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .btn-main:hover,
+        .btn-main:focus,
+        .btn-main:active {
+            background-color: #ffffff !important;
+            color: #7b7493 !important;
+            border-color: #9790b2 !important;
+            transform: translateY(-1px);
+        }
+
+        /* Inverse Main button */
+        .btn-inverse-main {
+            background-color: #ffffff;
+            color: #9790b2;
+            border: 1px solid #9790b2;
+            font-weight: 425;
+            font-size: 1rem;
+            padding: 0.35rem 0.7rem;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .btn-inverse-main:hover,
+        .btn-inverse-main:focus,
+        .btn-inverse-main:active {
+            background-color: #9790b2 !important;
+            color: #ffffff !important;
+            border-color: #9790b2 !important;
+            transform: translateY(-1px);
+        }
+
+        /* Hero spacing */
+        .site-hero {
+            padding: 1.8rem 0 2.1rem;
         }
     </style>
 </head>
 
 <body>
 
-    <header class="custom-header py-2">
+    <header class="custom-header">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-light site-navbar">
+            <div class="container">
+    
+                <!-- Favicon -->
+                <a class="navbar-brand d-flex align-items-center" href="#">
+                    <img src="{{ url_for('static', filename='assets/android-chrome-512x512.png') }}"
+                         alt="Marissa Fowler"
+                         width="32"
+                         height="32"
+                         class="nav-brand-icon">
+                </a>
+    
+                <!-- Mobile menu button -->
+                <button class="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#mainNavbar"
+                        aria-controls="mainNavbar"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+    
+                <div class="collapse navbar-collapse" id="mainNavbar">
+    
+                    <!-- Main navigation links -->
+                    <ul class="navbar-nav ms-auto align-items-lg-center">
+    
+                        <li class="nav-item">
+                            <a class="nav-link site-nav-link" href="#About">About</a>
+                        </li>
+    
+                        <li class="nav-item">
+                            <a class="nav-link site-nav-link" href="#Experience">Experience</a>
+                        </li>
+    
+                        <li class="nav-item">
+                            <a class="nav-link site-nav-link" href="#Skills">Skills</a>
+                        </li>
+    
+                        <li class="nav-item">
+                            <a class="nav-link site-nav-link" href="#Projects">Projects</a>
+                        </li>
+    
+                        <li class="nav-item">
+                            <a class="nav-link site-nav-link" href="#ContactMe">Contact</a>
+                        </li>
+    
+                        <!-- LinkedIn -->
+                        <li class="nav-item social-nav-item">
+                            <a class="nav-link"
+                               href="https://www.linkedin.com/in/marissaloya/"
+                               target="_blank"
+                               rel="noopener noreferrer">
+                                <img src="{{ url_for('static', filename='assets/linkedin_logo.png') }}"
+                                     alt="LinkedIn"
+                                     width="26"
+                                     height="26"
+                                     class="social-icon">
+                            </a>
+                        </li>
+    
+                        <!-- GitHub -->
+                        <li class="nav-item social-nav-item">
+                            <a class="nav-link"
+                               href="https://github.com/mloya1105"
+                               target="_blank"
+                               rel="noopener noreferrer">
+                                <img src="{{ url_for('static', filename='assets/github_logo.png') }}"
+                                     alt="GitHub"
+                                     width="26"
+                                     height="26"
+                                     class="social-icon">
+                            </a>
+                        </li>
+    
+                        <!-- Resume -->
+                        <li class="nav-item ms-lg-2">
+                            <a href="{{ url_for('static', filename='assets/Marissa Fowler Resume.pdf') }}"
+                               class="btn btn-resume"
+                               download>
+                                Download Resume
+                            </a>
+                        </li>
+    
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    
+        <!-- Hero -->
         <div class="container">
-
-            <!-- Social links -->
-            <ul class="nav justify-content-end">
-                <li class="nav-item">
-                    <a class="nav-link"
-                       href="https://www.linkedin.com/in/marissaloya/"
-                       target="_blank"
-                       rel="noopener noreferrer">
-                        <img src="{{ url_for('static', filename='assets/linkedin_logo.png') }}"
-                             alt="LinkedIn"
-                             width="30"
-                             height="30"
-                             class="social-icon">
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link"
-                       href="https://github.com/mloya1105"
-                       target="_blank"
-                       rel="noopener noreferrer">
-                        <img src="{{ url_for('static', filename='assets/github_logo.png') }}"
-                             alt="GitHub"
-                             width="30"
-                             height="30"
-                             class="social-icon">
-                    </a>
-                </li>
-            </ul>
-
-            <!-- Hero -->
             <div class="text-center site-hero">
+    
                 <h1 class="hero-title">Marissa Fowler</h1>
-            
+    
                 <p class="hero-role">
-                    <strong>Analytics Engineer</strong>
+                    Analytics Engineer
                 </p>
-            
+    
                 <p class="hero-copy">
                     Building reliable data pipelines, KPI frameworks, and self-service analytics
                     with SQL, Python, Alteryx, BigQuery, Power BI, and Tableau.
                 </p>
-            
-                <p class="hero-location">Virginia Beach, Virginia</p>
-            
-                <div class="hero-actions">
-                    <a href="#Experience" class="btn btn-main">
-                        View Experience
-                    </a>
-                    <a href="{{ url_for('static', filename='assets/Marissa Fowler Resume 2026.pdf') }}"
-                        class="btn btn-resumedownload"
-                        download>
-                        Download Resume
-                    </a>
-                    <a href="#ContactMe" class="btn btn-main">
-                        Contact Me
-                    </a>
-                </div>
+    
+                <p class="hero-location">
+                    Virginia Beach, Virginia
+                </p>
+    
             </div>
         </div>
+    
     </header>
 
     <main>
@@ -569,15 +710,14 @@
 
                         <div class="contact-actions">
                             <button type="submit"
-                                    class="btn btn-primary"
-                                    style="background-color: #9790b2; color: white; border: 1px solid #9790b2;">
+                                    class="btn btn-inverse-main">
                                 Send Message
                             </button>
 
                             <a href="https://calendly.com/mloya1207"
                                target="_blank"
                                rel="noopener noreferrer"
-                               class="btn btn-outline-secondary">
+                               class="btn btn-main">
                                 Schedule a Conversation
                             </a>
                         </div>
