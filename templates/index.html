@@ -137,15 +137,16 @@
         }
 
         /* LinkedIn + GitHub icon hover */
-        .custom-header .nav-link img {
-            transition: filter 0.2s ease, transform 0.2s ease;
+        .social-icon {
+            display: block;
+            transition: transform 0.2s ease, filter 0.2s ease;
         }
 
-        .custom-header .nav-link:hover img {
+        .nav-link:hover .social-icon {
+            transform: translateY(-3px) scale(1.08) !important;
             filter: brightness(0) saturate(100%)
-                    invert(49%) sepia(11%) saturate(925%)
-                    hue-rotate(213deg) brightness(91%) contrast(87%);
-            transform: translateY(-2px);
+                    invert(51%) sepia(10%) saturate(1004%)
+                    hue-rotate(211deg) brightness(89%) contrast(85%) !important;
         }
     </style>
 </head>
@@ -165,7 +166,8 @@
                         <img src="{{ url_for('static', filename='assets/linkedin_logo.png') }}"
                              alt="LinkedIn"
                              width="30"
-                             height="30">
+                             height="30"
+                             class="social-icon">
                     </a>
                 </li>
                 <li class="nav-item">
@@ -176,7 +178,8 @@
                         <img src="{{ url_for('static', filename='assets/github_logo.png') }}"
                              alt="GitHub"
                              width="30"
-                             height="30">
+                             height="30"
+                             class="social-icon">
                     </a>
                 </li>
             </ul>
