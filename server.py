@@ -2,7 +2,6 @@ from flask import Flask, request, jsonify, render_template
 import smtplib
 import os
 from dotenv import load_dotenv
-from flask_cors import CORS  # Import the CORS module
 
 load_dotenv()
 
@@ -11,9 +10,6 @@ EMAIL_USER = os.getenv("EMAIL_USER")
 EMAIL_PASS = os.getenv("EMAIL_PASS")
 
 app = Flask(__name__)
-
-# Enable CORS for localhost (and production domain)
-CORS(app, origins=["http://127.0.0.1:5000", "https://marissa-loya.com"])  # Allow localhost and production server
 
 @app.route('/')
 def home():

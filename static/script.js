@@ -16,7 +16,7 @@ document.getElementById("contactForm").addEventListener("submit", async function
         formData.append("message", message);
 
         try {
-            let response = await fetch("https://marissa-loya.com/contact", {
+            let response = await fetch("/contact", {
                 method: "POST",
                 body: formData
             });
