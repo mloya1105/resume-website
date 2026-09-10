@@ -44,7 +44,6 @@ def contact():
         
         # Prepare response
         response = jsonify({"status": f"Thank you for your message, {name}! I'll be in touch soon."})
-        response.headers['Access-Control-Allow-Origin'] = 'http://127.0.0.1:5000'  # Explicitly allow localhost
         
         # Return the success response
         return response, 200  # 200 OK status
@@ -52,8 +51,7 @@ def contact():
     except smtplib.SMTPException as e:
         # Log specific SMTP exceptions
         print(f"SMTP error occurred: {str(e)}")
-        response = jsonify({"status": "Error", "message": f"SMTP error: {str(e)}"})
-        response.headers['Access-Control-Allow-Origin'] = 'http://127.0.0.1:5000'
+        response = jsonify({"status": "Error", "message": f"SMTP error: {str(e)}"}) 
         return response, 500
 
     except Exception as e:
