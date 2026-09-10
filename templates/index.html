@@ -125,7 +125,7 @@
         .btn-contact {
             background-color: #ffffff;
             color: #9790b2;
-            border: 1px solid #ffffff;
+            border: 1px solid #9790b2;
         }
 
         .btn-contact:hover,
@@ -134,6 +134,18 @@
             background-color: #7b7493 !important;
             color: #ffffff !important;
             border-color: #ffffff !important;
+        }
+
+        /* LinkedIn + GitHub icon hover */
+        .custom-header .nav-link img {
+            transition: filter 0.2s ease, transform 0.2s ease;
+        }
+
+        .custom-header .nav-link:hover img {
+            filter: brightness(0) saturate(100%)
+                    invert(49%) sepia(11%) saturate(925%)
+                    hue-rotate(213deg) brightness(91%) contrast(87%);
+            transform: translateY(-2px);
         }
     </style>
 </head>
