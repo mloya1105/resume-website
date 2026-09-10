@@ -117,29 +117,29 @@
             margin-bottom: 0.7rem;
         }
 
-        .btn-experience {
+        .btn-main {
             background-color: #7b7493;
             color: #ffffff;
             border: 1px solid #ffffff;
         }
 
-        .btn-experience:hover,
-        .btn-experience:focus,
-        .btn-experience:active {
+        .btn-main:hover,
+        .btn-main:focus,
+        .btn-main:active {
             background-color: #ffffff !important;
             color: #9790b2 !important;
             border-color: #9790b2 !important;
         }
 
-        .btn-contact {
+        .btn-resumedownload {
             background-color: #ffffff;
             color: #9790b2;
             border: 1px solid #9790b2;
         }
 
-        .btn-contact:hover,
-        .btn-contact:focus,
-        .btn-contact:active {
+        .btn-resumedownload:hover,
+        .btn-resumedownload:focus,
+        .btn-resumedownload:active {
             background-color: #7b7493 !important;
             color: #ffffff !important;
             border-color: #ffffff !important;
@@ -209,11 +209,15 @@
                 <p class="hero-location">Virginia Beach, Virginia</p>
             
                 <div class="hero-actions">
-                    <a href="#Experience" class="btn btn-experience">
+                    <a href="#Experience" class="btn btn-main">
                         View Experience
                     </a>
-            
-                    <a href="#ContactMe" class="btn btn-contact">
+                    <a href="{{ url_for('static', filename='assets/Marissa Fowler Resume 2026.pdf') }}"
+                        class="btn btn-resumedownload"
+                        download>
+                        Download Resume
+                    </a>
+                    <a href="#ContactMe" class="btn btn-main">
                         Contact Me
                     </a>
                 </div>
